@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact Form Automation</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <div class="block block1">
+            <h1>Contact Form Automation</h1>
+        </div>
+        <div class="block block2">
+            <div class="sub-block2">
+                <form id="inputForm" enctype="multipart/form-data">
+                    <input type="file" name="csv" id="csv" accept=".csv" required>
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- These are blocks which contains HTML elements' inject from javascript side, When user makes a fetch request. -->
+
+        <div id="fetchBanner">
+
+        </div>
+
+        <div id="reports">
+            <div id="reportsHeader" class="automationReport">
+
+            </div>
+            <hr id="horizonLine" style="display:none; margin: 2%;">
+            <div id="report1" class="automationReport">
+
+            </div>
+            <div id="report2" class="automationReport">
+
+            </div>
+        </div>
+
+        {% if not email_flag %}
+        <div class="email-popup" id="emailPopup">
+            <form action="/" method="post" class="form-container">
+                <div id="form-div">
+                    <h3>Please enter your Email</h3><br>
+                    <input id="email" name="email" type="email" placeholder="Email..." required>
+                    <br>
+                    <button type="submit">Submit</button>
+    
+                </div>
+            </form>
+        </div>
+        {% endif %}
+        
+
+        <!-- End HTML Injection blocks from JavaScript  -->
+        
+        <script src="{{url_for('static', filename='main.js')}}"></script>
+    </body>
+</html>
